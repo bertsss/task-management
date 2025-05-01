@@ -2,11 +2,13 @@
 import { ref } from 'vue'
 
 const emit = defineEmits(['save'])
+
 const task = ref({
     name: '',
     prio: '',
     done: false
 })
+
 const onSubmit = () => {
     if (task.value.name.trim() === '') return
 
