@@ -28,9 +28,9 @@ const remove = (task) => {
 </script>
 
 <template>
-    <div class="flex flex-row">
+    <div class="flex flex-row w-full">
         <!-- <h2 class="text-xl font-semibold mb-4">Task Management Application</h2> -->
-        <SideNav/>
+        <SideNav />
 
         <div class="container">
             <RouterView></RouterView>
