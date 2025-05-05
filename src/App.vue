@@ -1,30 +1,28 @@
 <script lang="ts" setup>
 // import Form from './components/Form.vue'
 // import Table from './components/Table.vue'
-import SideNav from './components/SideNav.vue'
-import { ref, onMounted, watch } from 'vue'
+import SideNav from './components/SideNav.vue';
+import { ref, onMounted, watch } from 'vue';
 
-const setOfTasks = ref([])
-const form = ref(null)
+const setOfTasks = ref([]);
+const form = ref(null);
 
 onMounted(() => {
-    setOfTasks.value = JSON.parse(localStorage.getItem('setOfTasks')) || []
-})
+    setOfTasks.value = JSON.parse(localStorage.getItem('setOfTasks')) || [];
+});
 
-watch(setOfTasks, (newVal) => {
-    localStorage.setItem('setOfTasks', JSON.stringify(newVal))
-}, { deep: true })
-
-const save = (task) => {
-    setOfTasks.value.unshift(task)
-    localStorage.setItem('setOfTasks', JSON.stringify(setOfTasks.value))
-    form.value.clearForm()
-}
+watch(
+    setOfTasks,
+    (newVal) => {
+        localStorage.setItem('setOfTasks', JSON.stringify(newVal));
+    },
+    { deep: true }
+);
 
 const remove = (task) => {
-    const index = setOfTasks.value.findIndex(x => x.name === task.name)
-    setOfTasks.value.splice(index, 1)
-}
+    const index = setOfTasks.value.findIndex((x) => x.name === task.name);
+    setOfTasks.value.splice(index, 1);
+};
 </script>
 
 <template>
@@ -32,7 +30,7 @@ const remove = (task) => {
         <!-- <h2 class="text-xl font-semibold mb-4">Task Management Application</h2> -->
         <SideNav />
 
-        <div class="container p-6 bg-neutral-100 font-inter">
+        <div class="container p-6 bg-neutral-100 font-inter max-w-full">
             <RouterView></RouterView>
         </div>
 
@@ -48,5 +46,4 @@ const remove = (task) => {
     </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
