@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import Form from './components/Form.vue'
-import Table from './components/Table.vue'
+// import Form from './components/Form.vue'
+// import Table from './components/Table.vue'
 import SideNav from './components/SideNav.vue'
-import { ref, reactive, onMounted, watch } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 const setOfTasks = ref([])
 const form = ref(null)
@@ -28,11 +28,11 @@ const remove = (task) => {
 </script>
 
 <template>
-    <div class="flex flex-row w-full">
+    <div class="flex flex-row w-full h-dvh">
         <!-- <h2 class="text-xl font-semibold mb-4">Task Management Application</h2> -->
         <SideNav />
 
-        <div class="container">
+        <div class="container p-6 bg-neutral-100 font-inter">
             <RouterView></RouterView>
         </div>
 

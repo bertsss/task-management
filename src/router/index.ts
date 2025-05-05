@@ -1,15 +1,25 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
-
-import Home from '../pages/Home.vue'
-import ViewTask from '../pages/ViewTask.vue'
+import { createWebHistory, createRouter } from 'vue-router'
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/view', component: ViewTask },
+    {
+        path: '/',
+        name: 'Home',
+        component: () => import('../pages/Home.vue')
+    },
+    {
+        path: '/view',
+        name: 'View',
+        component: () => import('../pages/ViewTask.vue')
+    },
+    { 
+        path: '/create',
+        name: 'Create',
+        component: () => import('../pages/Create.vue')
+    }
 ]
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes,
 })
 
