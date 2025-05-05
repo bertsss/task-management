@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import InputField from "../components/InputField.vue";
+
 const emit = defineEmits(["save"]);
 
 const task = ref({
@@ -38,7 +39,10 @@ defineExpose({ clearForm });
                 Fill in the details below to create a new task
             </p>
 
-            <InputField label="Task Name"></InputField>
+            <InputField
+                label="Task Name"
+                v-model="task.name"
+            ></InputField>
             <div class="flex items-center">
                 <p class="text-left mr-4 w-2/6">Task Name:</p>
                 <input

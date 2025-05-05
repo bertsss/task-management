@@ -3,8 +3,8 @@ const props = defineProps<{
     label: string;
     isRequired?: boolean;
 }>();
-
 const { label = "Label", isRequired = false } = props;
+const model = defineModel();
 </script>
 
 <template>
@@ -14,6 +14,7 @@ const { label = "Label", isRequired = false } = props;
             name="input"
             type="text"
             placeholder=" "
+            v-model="model"
         />
         <label
             class="label absolute left-4 top-2 cursor-text bg-white transition-all"
